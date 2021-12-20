@@ -1,0 +1,24 @@
+﻿@page
+@model Class_Project.Pages.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div>
+    <img src="/Images/paint-cans.jpg" class="indexImage" />
+</div>
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to Diego's Paint Store!</h1>
+    <p>
+        Buying paint for your new project can be a pretty lengthy project. There are many choice you have to make. You have to choose the right paint
+        for your project, the right sheen, the right colors and much more! It can get complicated fast. Here we hope we can make the process a little easier!
+    </p>
+    <p>To order paint please press the button below!</p>
+</div>
+
+<div class="text-center form-group">
+    <a class="btn btn-primary" asp-page="Create" style="background-color:green">Create Order</a>
+</div>
+

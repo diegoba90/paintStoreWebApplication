@@ -1,0 +1,84 @@
+﻿@page
+@model Class_Project.Pages.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+
+
+<div class="text-center">
+    <img src="~/Images/header-logo.jpg" class="headerLogo" />
+
+    <h1>Diego's Paint Store</h1>
+
+    <h4>Create Order</h4>
+    <hr />
+</div>
+
+<div class="text-left">
+    <p>
+        Please enter the information below in order to begin the process! This information is important as it will allow us to properly keep track of your
+        order to ensure that every detail is made right.
+    </p>
+</div>
+
+<div class="createImage">
+    <img src="~/Images/create-order.png" />
+</div>
+
+
+
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Class_ProjectModel.FirstName" class="control-label">First Name</label>
+                <input asp-for="Class_ProjectModel.FirstName" class="form-control" />
+                <span asp-validation-for="Class_ProjectModel.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Class_ProjectModel.LastName" class="control-label">Last Name</label>
+                <input asp-for="Class_ProjectModel.LastName" class="form-control" />
+                <span asp-validation-for="Class_ProjectModel.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Class_ProjectModel.PhoneNumber" class="control-label">Phone Number</label>
+                <input asp-for="Class_ProjectModel.PhoneNumber" class="form-control" />
+                <span asp-validation-for="Class_ProjectModel.PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Class_ProjectModel.Email" class="control-label">Email</label>
+                <input asp-for="Class_ProjectModel.Email" class="form-control" />
+                <span asp-validation-for="Class_ProjectModel.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Class_ProjectModel.Street" class="control-label">Street Number and Name</label>
+                <input asp-for="Class_ProjectModel.Street" class="form-control" />
+                <span asp-validation-for="Class_ProjectModel.Street" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Class_ProjectModel.State" class="control-label">State</label>
+                <input asp-for="Class_ProjectModel.State" class="form-control" />
+                <span asp-validation-for="Class_ProjectModel.State" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Class_ProjectModel.ZipCode" class="control-label">ZipCode</label>
+                <input asp-for="Class_ProjectModel.ZipCode" class="form-control" />
+                <span asp-validation-for="Class_ProjectModel.ZipCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a class="btn btn-primary" asp-page="Index" style="background-color:red">Back</a>
+                <input type="submit" value="Proceed" class="btn btn-primary" asp-page="Products" style="background-color:green" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

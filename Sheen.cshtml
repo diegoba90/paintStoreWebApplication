@@ -1,0 +1,81 @@
+﻿@page
+@model Class_Project.Pages.SheenModel
+
+@{
+    ViewData["Title"] = "Sheen";
+}
+
+<div class="text-center">
+    <img src="~/Images/header-logo.jpg" class="headerLogo" />
+
+    <h1>Diego's Paint Store</h1>
+
+    <h4>Sheen Details</h4>
+    <hr />
+</div>
+
+<div class="sheenImage">
+    <img src="~/Images/sheen.png" />
+</div>
+
+<div class="text-left">
+    <p>Choosing the right sheen is just as important as the product type and the color of the paint. This normally boils down to the preference of the
+    costumer. There are three different types of sheens: <i>flat, satin and semi-gloss</i>. These sheens have a purpose and they are quite different from
+    each other. When choosing sheens consider the following infomration:</p>
+
+    <div class="sheenList">
+        <ul>
+            <li>
+                <h6>Flat:</h6>
+                <p>Flat sheen is the dullest of the sheens. Unless you go with a higher end quality paint you will not be able to clean this type of paint.
+                This paint is unscrubbable, meaning that if you scrub the surface there's a chance that your paint may come off. The flat sheen is normally used
+                for exterior siding, stucco, and ceilings.</p>
+            </li>
+            <li>
+                <h6>Satin:</h6>
+                <p>The satin finish is the most popular choice when it comes to sheens. This sheen has a shiny protective layer that's not overpowering and will not
+                reflect light like a mirror. This finish is cleanable and durable which is why it makes it a great choice for the walls. This sheen is normally
+                used on walls and exterior siding.</p>
+            </li>
+            <li>
+                <h6>Semi-Gloss:</h6>
+                <p>The semi-gloss sheen is the shiniest of them all. This offers a thick protective layer over the paint that results in a mirror effect that will
+                reflect light. This sheen is also very cleanable and scrubable. It is more commonly used on interior and exterior trim, shutters and cabinets
+                in order to make them stand out from the rest of the house.</p>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<p>Now that you know about our different sheens, please make your selection below!</p>
+
+
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Class_ProjectModel.Sheen" class="control-label">Paint Sheen</label>
+                <div class="col-md-6 dropdown">
+                    <select asp-for="Class_ProjectModel.Sheen" class="form-control">
+                        <option></option>
+                        <option>Flat</option>
+                        <option>Satin</option>
+                        <option>Semi-Gloss</option>
+                    </select>
+                    <span asp-validation-for="Class_ProjectModel.Sheen" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a class="btn btn-primary" asp-page="Product" style="background-color:red">Back</a>
+                <a class="btn btn-primary" asp-page="Colors" style="background-color:green">Proceed</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

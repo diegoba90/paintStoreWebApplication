@@ -1,0 +1,65 @@
+﻿@page
+@model Class_Project.Pages.ColorsModel
+
+@{
+    ViewData["Title"] = "Sheen";
+}
+
+<div class="text-center">
+    <img src="~/Images/header-logo.jpg" class="headerLogo" />
+    <h1>Diego's Paint Store</h1>
+
+    <h4>Color List</h4>
+    <hr />
+</div>
+
+<p>Please choose from the below selection of colors or search for a color below:</p>
+
+<form>
+    <p>
+        Color Search: <input type="text" asp-for="Class_ProjectModel.Color" />
+        <input type="submit" value="Search" />
+
+    </p>
+</form>
+
+<div class="colorImage">
+    <img src="~/Images/colors.jpg" />
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Class_ProjectModel.Color" class="control-label">Paint Sheen</label>
+                <div class="col-md-6 dropdown">
+                    <select asp-for="Class_ProjectModel.Color" class="form-control">
+                        <option></option>
+                        <option>Red</option>
+                        <option>Black</option>
+                        <option>White</option>
+                        <option>Blue</option>
+                        <option>Green</option>
+                        <option>Blush</option>
+                        <option>Orange</option>
+                        <option>Yellow</option>
+                        <option>Purple</option>
+                        <option>Caucasian</option>
+                    </select>
+                    <span asp-validation-for="Class_ProjectModel.Color" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a class="btn btn-primary" asp-page="Sheen" style="background-color:red">Back</a>
+                <a class="btn btn-primary" asp-page="Location" style="background-color:green">Proceed</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

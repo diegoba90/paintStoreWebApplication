@@ -1,0 +1,56 @@
+﻿@page
+@model Class_Project.Pages.LocationModel
+
+@{
+    ViewData["Title"] = "Location";
+}
+
+<div class="text-center">
+    <img src="~/Images/header-logo.jpg" class="headerLogo" />
+
+    <h1>Diego's Paint Store</h1>
+
+    <h4>Location Details</h4>
+    <hr />
+</div>
+
+<p>Choosing a location will allow us to keep track of which colors are in which rooms. This will make it easier for you to save your color and get more paint
+    for your room when the need arises. The convinience of buying paint from us is that peace of mind you get from knowing that we keep track of your purchase
+    history. This will ensure that you always have 100% accuracy when buying paint and repainting your rooms.</p>
+
+<p>Please choose the location of your paint!</p>
+
+<div class="locationImage">
+    <img src="~/Images/location.png" />
+</div>
+
+
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Class_ProjectModel.Location" class="control-label">Paint Location</label>
+                <div class="col-md-6 dropdown">
+                    <select asp-for="Class_ProjectModel.Location" class="form-control">
+                        <option></option>
+                        <option>Bedrooms</option>
+                        <option>Main Walls</option>
+                        <option>Bathrooms</option>
+                    </select>
+                    <span asp-validation-for="Class_ProjectModel.Location" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a class="btn btn-primary" asp-page="Colors" style="background-color:red">Back</a>
+                <a class="btn btn-primary" asp-page="Confirmation" style="background-color:green">Proceed</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

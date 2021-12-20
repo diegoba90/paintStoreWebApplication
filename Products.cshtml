@@ -1,0 +1,125 @@
+﻿@page
+@model Class_Project.Pages.ProductsModel
+
+@{
+    ViewData["Title"] = "Products";
+}
+
+<div class="text-center">
+    <img src="~/Images/header-logo.jpg" class="headerLogo" />
+
+    <h1>Diego's Paint Store</h1>
+
+    <h4>Product Details</h4>
+    <hr />
+</div>
+
+<div class="text-left">
+    <p>
+        Choosing the right type of paint to use is just as important as choosing which color you want to paint your house in. There are many different
+        decisions you have to make in order to ensure you get the right paint for the surface, the right sheen and the right size. Below are the
+        explanations of the different surface types, sheens and sizes that you need in order to pick the right product for your job.
+    </p>
+    <div class="productList">
+        <ul>
+            <li>
+                <h6>Paint Surface</h6>
+                <p><b>Exterior</b> surface paint will be able to withhold no matter the elements. It is more durable, protects against the sun, and takes
+                a lot longer to fade.</p>
+                <p><b>Interior</b> surface paint is a lot easier to clean, not as thick meaning that it can cover a lot more surface and has a protective
+                sealent layer that will prevent the scuffing of paint.</p>
+            </li>
+            <li>
+                <h6>Paint Type</h6>
+                <p><b>Low quality</b> paint is the cheapest option if you're on a budget. It will provide you with new paint at a much lower cost. This type of paint
+                doesn't touch up as good, is not cleanable, and will require 2-3 coats to cover.</p>
+                <p><b>Medium quality</b> paint is the most popular option. This type of paint tends to be more durable. It covers with 1-2 coats and most of them
+                have a built in primer formula that will allow to bond better to the surface you're painting.</p>
+                <p><b>High qualily</b> paint is the more expensive option. This paint has a primer formula built in with it. Covers surfacees in just one coat.
+                It is extremely durable and washable. Will require touch up after 8 years.</p>
+            </li>
+            <li>
+                <h6>Paint Size</h6>
+                <img src="~/Images/quart.jpg" class="quart" />
+                <img src="~/Images/gallon.jpg" class="gallon" />
+                <img src="~/Images/bucket.jpg" class="bucket" />
+                <p>
+                    <b>Quart:</b> This paint size is normally used for touch ups or small surfaces such as windows, trim, or doors. The average surface coverage
+                    is about 150 square feet per quart.
+                </p>
+                <p>
+                    <b>Gallon:</b> This paint size is what is normally used in bathroom or surface. It is the most common size for small to medium projects. Each gallon
+                    of paint will cover about 375 square feet.
+                </p>
+                <p>
+                    <b>5 Gallon Bucket:</b> A bucket of paint is normall used to paint multiple rooms or whole homes. Each bucket covers about 1200 square feet of surface.
+                </p>
+
+            </li>
+        </ul>
+    </div>
+
+    <p>Please make your selections below!</p>
+</div>
+
+
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Class_ProjectModel.Surface" class="control-label">Paint Surface</label>
+                <div class="col-md-6 dropdown">
+                    <select asp-for="Class_ProjectModel.Surface" class="form-control">
+                        <option></option>
+                        <option>Interior</option>
+                        <option>Exterior</option>
+                    </select>
+                    <span asp-validation-for="Class_ProjectModel.Surface" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Class_ProjectModel.ProductType" class="control-label">Paint Type</label>
+                <div class="col-md-6 dropdown">
+                    <select asp-for="Class_ProjectModel.ProductType" class="form-control">
+                        <option></option>
+                        <option>Low Quality</option>
+                        <option>Medium Quality</option>
+                        <option>High Quality</option>
+                    </select>
+                    <span asp-validation-for="Class_ProjectModel.ProductType" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Class_ProjectModel.ProductType" class="control-label">Paint Size</label>
+                <div class="col-md-6 dropdown">
+                    <select asp-for="Class_ProjectModel.ContainerSize" class="form-control">
+                        <option></option>
+                        <option>Quart</option>
+                        <option>Gallon</option>
+                        <option>5 Gallon Bucket</option>
+                    </select>
+                    <span asp-validation-for="Class_ProjectModel.ContainerSize" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Class_ProjectModel.Quantity" class="control-label">Quantity</label>
+                <input asp-for="Class_ProjectModel.Quantity" class="form-control" />
+                <span asp-validation-for="Class_ProjectModel.Quantity" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a class="btn btn-primary" asp-page="Create" style="background-color:red">Back</a>
+                <a class="btn btn-primary" asp-page="Sheen" style="background-color:green">Proceed</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
